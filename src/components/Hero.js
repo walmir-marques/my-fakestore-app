@@ -23,7 +23,7 @@ const Hero = () => {
             Discover More
           </Link>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <img src={WomanImg} alt="" />
         </div>
       </div>
