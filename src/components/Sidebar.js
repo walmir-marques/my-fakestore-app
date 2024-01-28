@@ -8,10 +8,14 @@ import CartItem from "../components/CartItem";
 
 import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
+import { AuthGoogleContext } from "../contexts/AuthGoogle";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
   const { cart, clearCart, total, itemAmount } = useContext(CartContext);
+  const { user } = useContext(AuthGoogleContext);
+
+  const displayName = user?.displayName;
 
   return (
     <div
@@ -21,7 +25,7 @@ const Sidebar = () => {
     >
       <div className="flex items-center justify-between py-6 border-b">
         <div className="uppercase text-sm font-semibold">
-          Shopping Bag {itemAmount}
+          {displayName} Bag {itemAmount}
         </div>
         <div
           onClick={handleClose}
